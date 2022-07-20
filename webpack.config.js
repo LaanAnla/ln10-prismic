@@ -2,7 +2,7 @@ const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+//const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 let mode = "development"
@@ -37,7 +37,7 @@ module.exports = {
     devtool: "source-map",
     output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "public"),
         clean: true,
     },
     module: {
@@ -108,7 +108,7 @@ module.exports = {
         filename: "[name].css",
         chunkFilename: "[id].css"
         }),
-        new HtmlWebpackPlugin(),
+        //new HtmlWebpackPlugin(),
     ],
     devServer: {
         port: 9090,
