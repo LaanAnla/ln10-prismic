@@ -7,7 +7,8 @@
     "backend:build": "node app.js",
     "backend:dev": "nodemon app.js",
     "build": "webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development",
+    "start": "concurrently --kill-others \"npm run backend:dev\" \"npm run dev\""
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +40,7 @@
   },
   "homepage": "https://github.com/LaanAnla/ln10-prismic#readme",
   "dependencies": {
+    "concurrently": "^7.3.0",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
     "pug": "^3.0.2"

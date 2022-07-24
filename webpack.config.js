@@ -111,11 +111,17 @@ module.exports = {
         //new HtmlWebpackPlugin(),
     ],
     devServer: {
-        port: 9090,
-        open: true,
-        hot: true,
-        static: {
-        directory: path.join(__dirname, "dist")
-        }
-    }
+        devMiddleware: {
+          writeToDisk: true
+        },
+        // open: true
+      },
+    // devServer: {
+    //     port: 9090,
+    //     open: true,
+    //     hot: true,
+    //     static: {
+    //     directory: path.join(__dirname, "dist")
+    //     }
+    // }
 };
