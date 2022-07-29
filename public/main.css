@@ -1,15 +1,108 @@
 /*!**********************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/styles/index.scss ***!
   \**********************************************************************************************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
 body {
-  background-color: rgb(23, 126, 216);
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.dg.ac {
+  z-index: 99999 !important;
+}
+
+@font-face {
+  font-family: "Avantgarde md";
+  src: url(fonts/8407818d7025fb2ce85c.woff2) format("woff2"), url(fonts/972166616e4ef25ec7f7.woff) format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avantgarde st";
+  src: url(fonts/7e2f2e4231db389c7e01.woff2) format("woff2"), url(fonts/9071614471309f51a3a1.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Avantgarde st";
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.home {
   height: 100vh;
   width: 100vw;
 }
 
-h1 {
-  color: white;
-  font-size: 150px;
+.home__links {
+  height: 100px;
+  width: 100vw;
+  text-align: center;
+}
+
+.home__links__link {
+  color: black;
+  font-size: 30px;
+}
+
+.home__video {
+  height: 30vh;
+  width: 30vw;
+}
+
+.home__video video {
+  height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map*/

@@ -21,16 +21,28 @@ const fetch = require('node-fetch')
 const endpoint = process.env.PRISMIC_ENDPOINT
 const client = prismic.createClient(endpoint, { fetch })
 
-const handleLinkResolver = (doc) => {
-  // if (doc.type === 'page') return `/${doc.lang}/${doc.uid}`
-  // if (doc.type === 'homepage') return `/${doc.lang}`
-  return '/'
+const handleLinkResolver = (document) => {
+  if (document.type === 'projets') {
+    return '/projets'
+  } 
+  if (document.type === 'antonin') {
+    return '/antonin'
+  }
+  if (document.type === 'ninon') {
+    return '/ninon'
+  }
+  if (document.type === 'manon') {
+    return '/manon'
+  } else {
+    return '/'
+  }
 }
 
 // Add a middleware function that runs on every route. It will inject 
 // the prismic context to the locals so that we can access these in 
 // our templates.
 app.use((req, res, next) => {
+  res.locals.link = handleLinkResolver
   res.locals.ctx = {
     prismicH,
     linkResolver: handleLinkResolver,
@@ -52,7 +64,7 @@ app.get('/', async (req, res) => {
       // Destructuring assignment
       const { results } = response;
       [ accueil ] = results;
-      console.log(accueil.data.menu_navigation);
+      console.log(accueil.data.navigation);
       res.render('pages/home')
     })
   }
