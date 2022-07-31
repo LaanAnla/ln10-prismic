@@ -1,0 +1,8 @@
+.footer 
+  .footer__social 
+    each image in footer.data.footer
+      a.footer__social_link(href=image.social_link.url target="_blank")
+        img(src=image.footer_image.url alt=image.footer_image.alt loading="lazy")
+  .footer__mentions
+    p @tous droits réservés |
+    a(href="https://www.studioln10.com")  STUDIO LN10

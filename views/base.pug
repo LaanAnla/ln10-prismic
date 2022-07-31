@@ -2,6 +2,7 @@ block variables
 
 doctype html 
 html(lang='fr')
+  block vars
   head 
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -9,6 +10,10 @@ html(lang='fr')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     base(href='/')
+
+    title=  title
+
+    meta(name="description" content= description)
 
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
@@ -24,4 +29,5 @@ html(lang='fr')
   body 
     include ./partials/preloader
     .content#content(data-template=template)
-    block content
+      block content
+    script(src="main.js")

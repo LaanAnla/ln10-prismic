@@ -2,6 +2,29 @@ extend ../base.pug
 
 block variables
   - var template = 'antonin'
+
+block vars 
+  - var title =antonin.data.meta_title
+  - var description =antonin.data.meta_description
   
 block content   
-  h1 Page Antonin
+  .team__members
+    include ../partials/menu
+    include ../partials/page__navigation
+
+    .team__members__introduction
+      h1=antonin.data.name
+      h2=antonin.data.description
+
+    .team__members__work
+      each media in antonin.data.gallerie
+        .team__members__image__container
+          figure
+            img(src=media.image.url alt=media.image.alt loading="lazy" data-src=media.full.url) 
+
+    .team__members__social
+      each media in antonin.data.social
+        a(href=media.link.url target="_blank")
+          img(src=media.image.url alt=media.image.alt loading="lazy")
+
+    include ../partials/page__footer

@@ -58,56 +58,156 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Query for the homepage path.
 app.get('/', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
+  console.log(footer.data.footer)
   // Here we are retrieving the document from your API endpoint
-  const document = await client.get({ predicates: [ prismic.predicate.at("document.type", "accueil")]}).then( 
+  const document = await client.get({ predicates: [ prismic.predicate.at("document.type", 'accueil')]}).then( 
     response => {
       // Destructuring assignment
       const { results } = response;
       [ accueil ] = results;
       console.log(accueil.data.navigation);
-      res.render('pages/home')
+      res.render('pages/home', {
+        preloader,
+        footer
+      })
     })
   }
 )
 
-app.get('/propos', (req, res) => {
-  res.render('pages/about')
+app.get('/propos', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'about')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ about ] = results;
+      console.log(about);
+      res.render('pages/about', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
-app.get('/contact', (req, res) => {
-  res.render('pages/contact')
+app.get('/contact', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'contact')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ contact ] = results;
+      console.log(contact);
+      res.render('pages/contact', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
-app.get('/antonin', (req, res) => {
-  res.render('pages/antonin')
+app.get('/antonin', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'antonin')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ antonin ] = results;
+      console.log(antonin);
+      res.render('pages/antonin', {
+        preloader
+      })
+    }
+  )
 })
 
-app.get('/manon', (req, res) => {
-  res.render('pages/manon')
+app.get('/manon', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'manon')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ manon ] = results;
+      console.log(manon.data.galerie);
+      res.render('pages/manon', {
+        preloader
+      })
+    }
+  )
 })
 
-app.get('/ninon', (req, res) => {
-  res.render('pages/ninon')
+app.get('/ninon', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'ninon')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ ninon ] = results;
+      console.log(ninon.data.social);
+      res.render('pages/ninon', {
+        preloader
+      })
+    }
+  )
 })
 
-app.get('/projets', (req, res) => {
-  res.render('pages/projects')
+app.get('/projets', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'projets')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ projets ] = results;
+      console.log(projets);
+      res.render('pages/projects', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
-app.get('/galerie', (req, res) => {
-  res.render('pages/gallery')
+app.get('/galerie', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'gallerie')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ gallerie ] = results;
+      console.log(gallerie);
+      res.render('pages/gallery', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
-app.get('/silence', (req, res) => {
-  res.render('pages/silence')
+app.get('/silence', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  res.render('pages/silence', {
+    preloader
+  })
 })
 
-app.get('/monaco', (req, res) => {
-  res.render('pages/monaco')
+app.get('/monaco', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  res.render('pages/monaco', {
+    preloader
+  })
 })
 
-app.get('/saint-gilles', (req, res) => {
-  res.render('pages/saint-gilles')
+app.get('/saint-gilles', async (req, res) => {
+  const preloader = await client.getSingle('preloader')
+  res.render('pages/saint-gilles', {
+    preloader
+  })
 })
 
 app.listen(port, () => {

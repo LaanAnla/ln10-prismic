@@ -2,4 +2,16 @@
   font-family: $font-avantgarde-md,Arial,Helvetica,sans-serif;
   text-transform: uppercase;
   font-size: calc(25px + 55*(100vw - 360px)/1240);
+  color: $color-black;
 }
+
+%title-h3 {
+  font-family: $font-avantgarde-st;
+  font-size: calc(15px + (22 - 15) * ((100vw - 360px) / (1600 - 360)));
+}
+
+%title-h4 {
+  font-family: $font-avantgarde-st;
+  font-size: calc(12px + (22 - 12) * ((100vw - 360px) / (1600 - 360)));
+}
+

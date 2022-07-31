@@ -3,14 +3,22 @@ extend ../base.pug
 block variables
   - var template = 'home'
 
+block vars 
+  - var title =accueil.data.meta_title
+  - var description =accueil.data.meta_description
+
 block content   
   .home 
     include ../partials/menu
     include ../partials/main__navigation
 
     .home__links
-      each links in accueil.data.navigation
-        a.home__links__link(href=link(links.navigation_links))=links.navigation_links_text
+      ul 
+        each links in accueil.data.navigation
+          li 
+            a.home__links__link(href=link(links.navigation_links))
+              div
+                span.menu__item__text=links.navigation_links_text
     .home__video
       video(src="/video/BANDE_DEMO_LN10.mp4" controls poster=accueil.data.video.url)
     include ../partials/footer 

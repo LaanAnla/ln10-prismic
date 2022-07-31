@@ -1,0 +1,33 @@
+.contact {
+  @extend %cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} 
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+} 
+
+.contact__content__holder h2 {
+  font-family: $font-avantgarde-st;
+  font-size: calc(26px + (50 - 26) * ((100vw - 300px) / (1600 - 300)));
+  text-align: center;
+  height: 90px;
+  text-transform: uppercase;
+}
+
+.contact__content__email a {
+  font-family: $font-avantgarde-md;
+  font-size: calc(26px + (50 - 26) * ((100vw - 300px) / (1600 - 300)));
+  text-align: center;
+  height: 90px;
+  text-decoration: none;
+  color: black;
+} 

@@ -1,0 +1,62 @@
+.team__members {
+  @extend %cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team__members__introduction {
+  @extend %membre-introduction;
+}
+
+.team__members__introduction h1 {
+  @extend %membre-introduction-h1;
+}
+
+.team__members__introduction h2 {
+  @extend %membre-introduction-h2;
+}
+
+.team__members__work {
+  @extend %membre-work;
+}
+
+.team__members__image__container {
+  @extend %membre-image-container;
+}
+
+.team__members__image__container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.team__members__image__container:hover img {
+  transform: scale(1.10);
+}
+
+.team__members__video__container {
+  @extend %membre-video-container;
+}
+
+.team__members__video__container video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.team__members__video__container:hover video {
+  transform: scale(1.10);
+}
+
+.team__members__social {
+  @extend %membre-social;
+}
+
+.team__members__social img {
+  @extend %logo-social;
+}

@@ -1,12 +1,24 @@
 .preloader {
-
+ @extend %cover;
+ display: none;
+ align-items: center;
+ //display: flex;
+ justify-content: center;
+ text-align: center;
+ background-color: $color-white;
 } 
 
-.preloader__mask {
-
+.preloader__text {
+  font-size: 40px;
+  max-width: 70vw;
 }
 
-.preloader__mask__inner {
+.preloader__number {
+  bottom: 10%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+} 
+.preloader__number__text {
 
 }
-

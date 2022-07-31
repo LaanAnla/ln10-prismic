@@ -1,0 +1,17 @@
+.page__navigation {
+  display: flex;
+  flex-direction: row;
+}
+
+.page__navigation__logo {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+} 
+
+.page__navigation__logo img {
+  @extend %logo-small;
+  margin-left: 2vw;
+}
+
+

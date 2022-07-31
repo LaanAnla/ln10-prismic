@@ -3,5 +3,20 @@ extend ../base.pug
 block variables
   - var template = 'contact'
 
+block vars 
+  - var title =contact.data.meta_title
+  - var description =contact.data.meta_description
+
 block content   
-  h1 Page Contact
+  .contact 
+    include ../partials/menu
+    include ../partials/main__navigation
+    section.contact__content 
+      .contact__content__holder
+        div 
+          h2=contact.data.contact 
+        div
+          h2=contact.data.description 
+      .contact__content__email 
+        a(href="mailto:contact@studioln10.com")=contact.data.email
+    include ../partials/footer

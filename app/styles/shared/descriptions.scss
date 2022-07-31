@@ -1,0 +1,53 @@
+%membre-introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+%membre-introduction-h1 {
+  font-family: $font-avantgarde-md;
+  text-transform: uppercase;
+  font-size: calc(25px + (80 - 25) * ((100vw - 360px) / (1600 - 360)));
+}
+
+%membre-introduction-h2 {
+  font-family: $font-avantgarde-st;
+  font-size: calc(15px + (25 - 15) * ((100vw - 360px) / (1600 - 360)));
+  text-align: center;
+  width: 80%;
+}
+
+%membre-work {
+  // width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 1800px;
+  max-width: 95%;
+  height: auto;
+}
+
+%membre-image-container {
+  height: 330px;
+  width: 330px;
+  overflow: hidden;
+  background-color: $color-white;
+}
+
+%membre-video-container {
+  height: 330px;
+  width: 330px;
+  overflow: hidden;
+}
+
+%membre-social {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}

@@ -10,6 +10,14 @@
 @import './base/base.scss';
 
 @import './shared/title.scss';
+@import './shared/logo.scss';
+@import './shared/descriptions.scss';
+
+@import './components/preloader.scss';
+
+@import './layout/navigation.scss';
+@import './layout/page__navigation.scss';
+@import './layout/footer.scss';
 
 @import './pages/home/home.scss';
 @import './pages/about/about.scss';
@@ -18,4 +26,8 @@
 @import './pages/antonin/antonin.scss';
 @import './pages/manon/manon.scss';
 @import './pages/ninon/ninon.scss';
+@import './pages/galerie/galerie.scss';
+@import './pages/saint-gilles/saint-gilles.scss';
+@import './pages/monaco/monaco.scss';
+@import './pages/silence/silence.scss';
 

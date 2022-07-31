@@ -1,7 +1,15 @@
 extend ../base.pug
 
 block variables
-  - var template = 'gallerie'
+  - var template = 'galerie'
+
+block vars 
+  - var title =gallerie.data.meta_title
+  - var description =gallerie.data.meta_description
 
 block content   
-  h1 Page Gallery
+  .galerie 
+    include ../partials/menu
+    include ../partials/main__navigation
+
+    include ../partials/footer 

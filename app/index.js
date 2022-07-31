@@ -1,2 +1,2 @@
-console.log("hello from WebPack 5")
+console.log('hello Webpack 5')
 

@@ -39,6 +39,7 @@ module.exports = {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "public"),
+        assetModuleFilename: 'images/[name][ext]',
         clean: true,
     },
     module: {
@@ -56,9 +57,9 @@ module.exports = {
         {
             test: /\.(png|jpe?g|svg|gif|svg|webp|mp4)$/,
             type: "asset/resource",
-            generator: {
-            filename: "images/[hash][ext]"
-            }
+            // generator: {
+            // filename: "images/[hash][ext]"
+            // }
         },
         {
             test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -70,9 +71,9 @@ module.exports = {
         {
             test: /\.(png|jpe?g|svg|gif|svg|webp|mp4)$/,
             type: "asset/resource",
-            generator: {
-            filename: "images/[hash][ext]"
-            }
+            // generator: {
+            // filename: "images/[name][hash][ext]"
+            // }
         },
         {
             test: /\.(glsl|frag|vert)$/,
@@ -92,7 +93,27 @@ module.exports = {
                 "postcss-loader",
                 "sass-loader"
             ],
-        }
+        },
+        // {
+        //     test: /\.html$/i,
+        //     loader: "html-loader",
+        //     // options: {
+        //     //     sources: {
+        //     //         list: [
+        //     //             {
+        //     //               tag: "img",
+        //     //               attribute: "data-src",
+        //     //               type: "src",
+        //     //             },
+        //     //             {
+        //     //               tag: "img",
+        //     //               attribute: "data-srcset",
+        //     //               type: "srcset",
+        //     //             },
+        //     //           ]
+        //     //     }
+        //     // },
+        //   },
         ]
     },
     optimization: {

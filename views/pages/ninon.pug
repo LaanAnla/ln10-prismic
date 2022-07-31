@@ -3,5 +3,32 @@ extend ../base.pug
 block variables
   - var template = 'ninon'
 
+block vars 
+  - var title =ninon.data.meta_title
+  - var description =ninon.data.meta_description
+  
 block content   
-  h1 Page Ninon
+  .team__members
+    include ../partials/menu
+    include ../partials/page__navigation
+
+    .team__members__introduction
+      h1=ninon.data.introduction
+      h2=ninon.data.description
+
+    .team__members__work
+      each media in ninon.data.galerie
+        .team__members__image__container
+          figure
+            img(src=media.images.url alt=media.images.alt loading="lazy" data-src=media.images_modal.url)
+      each media in ninon.data.galerie
+        .team__members__video__container
+          video(src=media.videos.url preload="auto" poster=media.videos.url data-src=media.videos_links.url) 
+
+    .team__members__social
+      each media in ninon.data.social
+        a(href=media.social_link.url target="_blank")
+          img(src=media.social_image.url alt=media.alt loading="lazy")
+
+    include ../partials/page__footer
+

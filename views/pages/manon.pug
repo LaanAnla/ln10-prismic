@@ -3,5 +3,27 @@ extend ../base.pug
 block variables
   - var template = 'manon'
 
+block vars 
+  - var title =manon.data.meta_title
+  - var description =manon.data.meta_description
+  
 block content   
-  h1 Page Manon
+  .team__members
+    include ../partials/menu
+    include ../partials/page__navigation
+
+    .team__members__introduction
+      h1=manon.data.introduction
+      h2=manon.data.description
+
+    .team__members__work
+      each media in manon.data.galerie
+        .team__members__video__container
+          video(src=media.videos.url preload="auto" poster=media.poster.url data-src=media.videos.url) 
+
+    .team__members__social
+      each media in manon.data.social
+        a(href=media.link.url target="_blank")
+          img(src=media.images.url alt=media.images.alt loading="lazy")
+
+    include ../partials/page__footer

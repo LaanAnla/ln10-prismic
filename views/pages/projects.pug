@@ -3,5 +3,13 @@ extend ../base.pug
 block variables
   - var template = 'projets'
 
+block vars 
+  - var title =projets.data.meta_title
+  - var description =projets.data.meta_description
+
 block content   
-  h1 Page Projets
+  .projets 
+    include ../partials/menu
+    include ../partials/main__navigation
+
+    include ../partials/footer 

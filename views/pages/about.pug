@@ -2,5 +2,23 @@ extend ../base.pug
 
 block variables
   - var template = 'propos'
+
+block vars 
+  - var title =about.data.meta_title
+  - var description =about.data.meta_description
+
 block content   
-  h1 Page A Propos
+  .about 
+    include ../partials/menu
+    include ../partials/main__navigation
+    .about__introduction
+      h1!=about.data.description.replace(/\n/, '<br><br>')
+    .about__description
+      each media in about.data.images
+        figure.about__description__images
+          .about__description__images__animation
+            img(src=media.image.url alt=media.alt)
+          .about__description__text
+            h3=media.nom 
+            h4=media.email
+    include ../partials/footer

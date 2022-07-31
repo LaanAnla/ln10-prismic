@@ -1,0 +1,64 @@
+.about {
+  @extend %cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} 
+
+.about__introduction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.about__introduction h1 {
+  font-size: calc(15px + 5*(100vw - 360px)/1240);
+  line-height: 1.3;
+}
+
+.about__description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.about__description__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__description__images img {
+  height: 250px;
+  width: 250px;
+  transform: rotate(5deg);
+  transition: all 0.5s $ease-in-out;
+}
+
+.about__description__images:nth-child(odd) img {
+  transform: rotate(-5deg);
+}
+
+.about__description__images:hover img {
+  transform: rotate(-5deg);
+}
+
+.about__description__images:nth-child(odd):hover img {
+  transform: rotate(5deg);
+}
+
+.about__description__text h3 {
+  @extend %title-h3;
+
+  text-align: center;
+  margin-top: 5px;
+}
+
+.about__description__text h4 {
+  // @extend %title-h4;
+  margin-top: 10px;
+}

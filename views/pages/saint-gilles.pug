@@ -3,5 +3,13 @@ extend ../base.pug
 block variables
   - var template = 'saint-gilles'
 
+//- block vars 
+//-   - var title =antonin.data.meta_title
+//-   - var description =antonin.data.meta_description
+  
 block content   
-  h1 Page Saint Gilles
+  .saint-gilles
+    include ../partials/menu
+    include ../partials/page__navigation
+
+    include ../partials/page__footer

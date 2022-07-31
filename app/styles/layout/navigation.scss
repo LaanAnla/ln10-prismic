@@ -1,0 +1,62 @@
+.main__navigation {
+  display: flex;
+  height: 20vh;
+}
+
+.main__navigation__logo {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+} 
+
+.main__navigation__logo img {
+  @extend %logo-big;
+  transform: translateX(50%);
+}
+
+.main__navigation__menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main__navigation__menu > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  margin-right: 2vw;
+  margin-top: 2vh;
+  cursor: pointer;
+}
+
+.main__navigation__menu span {
+  background: black;
+  height: 1px;
+  width: 30px;
+  transition: 0.3s;
+  transform-origin: center;
+}
+
+.main__navigation__menu.active span:nth-child(1)
+{
+  top: 40%;
+  transform: rotate(45deg);
+  background: white;
+}
+
+.main__navigation__menu.active span:nth-child(2)
+{
+  top: 40%;
+  transform: rotate(-45deg);
+  background: white;
+}
+
+.main__navigation__menu.active span:nth-child(3)
+{
+  display: none;
+}
+
