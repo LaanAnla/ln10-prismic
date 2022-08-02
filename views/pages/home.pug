@@ -3,9 +3,16 @@ extend ../base.pug
 block variables
   - var template = 'home'
 
+
 block vars 
   - var title =accueil.data.meta_title
   - var description =accueil.data.meta_description
+  - var link__1 = '/propos'
+  - var page__1 = 'A propos'
+  - var link__2 = '/galerie'
+  - var page__2 = 'Galerie'
+  - var link__3 = '/contact'
+  - var page__3 = 'Contact'
 
 block content   
   .home 
@@ -16,7 +23,7 @@ block content
       ul 
         each links in accueil.data.navigation
           li 
-            a.home__links__link(href=link(links.navigation_links))
+            a.home__links__link.fetch(href=link(links.navigation_links))
               div
                 span.menu__item__text=links.navigation_links_text
     .home__video
