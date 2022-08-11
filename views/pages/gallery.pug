@@ -9,13 +9,18 @@ block vars
   - var link__1 = '/projets'
   - var page__1 = 'projets'
   - var link__2 = '/propos'
-  - var page__2 = 'A Propos'
+  - var page__2 = 'Propos'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
 
 block content   
-  .galerie 
+  .galerie.fading
     include ../partials/menu
     include ../partials/main__navigation
-
+    .galerie__slider
+      canvas.galerie__canvas 
+      .galerie__description
+        .galerie__description__arrow
+          img(src=('images/arrow-left-circle-lined.svg'))
+          img(src=('images/arrow-right-circle-lined.svg'))
     include ../partials/footer 

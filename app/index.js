@@ -1,3 +1,7 @@
+import each from 'lodash/each'
+
+import Preloader from 'components/Preloader'
+
 import About from 'pages/About'
 import Home from 'pages/Home'
 import Contact from 'pages/Contact'
@@ -6,14 +10,25 @@ import Ninon from 'pages/Ninon'
 import Manon from 'pages/Manon'
 import Galerie from 'pages/Galerie'
 import Projets from 'pages/Projets'
-import each from 'lodash/each'
+import Menu from 'components/Menu'
+import TextAnim from 'utils/textAnim'
+import Silence from 'pages/Silence'
+import SaintGilles from 'pages/SaintGilles'
+import Monaco from 'pages/Monaco'
 
 
 class App {
   constructor() {
     this.createContent()
+    this.createPreloader()
     this.createPages()
+    this.createMenu()
     this.addLinkListeners()
+  }
+
+  createPreloader() {
+    this.preloader = new Preloader()
+    this.preloader.once('completed', this.onPreloaded.bind(this))
   }
 
   createContent() {
@@ -30,18 +45,29 @@ class App {
       ninon: new Ninon(),
       manon: new Manon(),
       galerie: new Galerie(),
-      projets: new Projets()
+      projets: new Projets(),
+      silence: new Silence(),
+      saintGilles: new SaintGilles(),
+      monaco: new Monaco()
     }
 
     this.page = this.pages[this.template]
     this.page.create()
+  }
+
+  createMenu() {
+    this.menu = new Menu()
+    this.menuAnimation = new TextAnim(".menu__item")
+  }
+
+  onPreloaded() {
+    this.preloader.destroy()
     this.page.show()
   }
 
   async onChange(url) {
     await this.page.hide()
     const request = await window.fetch(url)
-    console.log(request)
 
      if(request.status === 200) {
       const html = await request.text()
@@ -59,7 +85,7 @@ class App {
       this.page = this.pages[this.template]
       this.page.create()
       this.page.show()
-
+      this.createMenu()
       this.addLinkListeners()
 
      } else {
@@ -69,7 +95,7 @@ class App {
 
   addLinkListeners() {
     const links = document.querySelectorAll('a.fetch')
-    console.log(links)
+
     each(links, link => {
       link.onclick = event => {
         event.preventDefault()

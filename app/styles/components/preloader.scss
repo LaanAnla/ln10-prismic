@@ -1,16 +1,18 @@
 .preloader {
  @extend %cover;
- display: none;
+ //display: none;
  align-items: center;
- //display: flex;
+ display: flex;
  justify-content: center;
  text-align: center;
- background-color: $color-white;
+ background-color: $color-black;
+ z-index: 5;
 } 
 
 .preloader__text {
   font-size: 40px;
   max-width: 70vw;
+  color: $color-white;
 }
 
 .preloader__number {
@@ -18,6 +20,7 @@
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
+  color: $color-white;
 } 
 .preloader__number__text {
 

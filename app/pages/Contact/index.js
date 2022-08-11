@@ -1,4 +1,5 @@
-import Page from "classes/Page";
+import Page from "classes/Page"
+import TextIntro from "utils/text"
 
 export default class Contact extends Page {
   constructor() {
@@ -11,5 +12,16 @@ export default class Contact extends Page {
       }
     })
 
+    
+  }
+
+  create() {
+    super.create()
+    
+      this.animation = new TextIntro(
+        this.text = document.querySelectorAll(".contact__content__holder"),
+        this.contact = document.querySelector(".contact__content__email"),
+        this.second = null
+      )
   }
 }

@@ -1,4 +1,5 @@
-import Page from "classes/Page";
+import Page from "classes/Page"
+import TextAnim from "utils/textAnim"
 
 export default class Home extends Page {
   constructor() {
@@ -7,16 +8,14 @@ export default class Home extends Page {
       element: '.home',
       elements: {
         navigation: document.querySelector('.main__navigation__menu div'),
-        menu: document.querySelector('.menu')
+        menu: document.querySelector('.menu'),
+        //text : document.querySelectorAll(".home__links__link"),
       }
     })
   }
 
-  // create() {
-  //   super.create()
-
-  //   this.elements.navigation.addEventListener('click', _ => {
-  //     console.log("oh, you click me right now")
-  //   })
-  // }
+  create() {
+    super.create()
+    this.animation = new TextAnim(".home__links__link");
+  }
 }

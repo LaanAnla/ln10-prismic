@@ -7,14 +7,14 @@ block vars
   - var title =manon.data.meta_title
   - var description =manon.data.meta_description
   - var link__1 = '/propos'
-  - var page__1 = 'A propos'
+  - var page__1 = 'Propos'
   - var link__2 = '/galerie'
   - var page__2 = 'Galerie'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
   
 block content   
-  .team__members
+  .team__members.fading
     include ../partials/menu
     include ../partials/page__navigation
 
@@ -25,7 +25,7 @@ block content
     .team__members__work
       each media in manon.data.galerie
         .team__members__video__container
-          video(src=media.videos.url preload="auto" poster=media.poster.url data-src=media.videos.url) 
+          video(src=media.videos.url poster=media.poster.url data-src=media.videos.url) 
 
     .team__members__social
       each media in manon.data.social

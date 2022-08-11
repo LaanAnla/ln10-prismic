@@ -7,7 +7,8 @@
 
 .about__introduction {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 30px;
   justify-content: center;
   text-align: center;
   margin-left: auto;
@@ -16,14 +17,24 @@
 }
 
 .about__introduction h1 {
-  font-size: calc(15px + 5*(100vw - 360px)/1240);
+  font-size: calc(20px + 5*(100vw - 360px)/1240);
   line-height: 1.3;
+
+  @include media('<phone') {
+    margin-bottom: 30px;
+  }
 }
 
 .about__description {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @include media('<phone') {
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 30px;
+  }
 }
 
 .about__description__images {
@@ -33,8 +44,8 @@
 }
 
 .about__description__images img {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   transform: rotate(5deg);
   transition: all 0.5s $ease-in-out;
 }

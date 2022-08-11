@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === "production") {
 }
 
 const dirApp = path.join(__dirname, "app")
-const dirVideos = path.join(__dirname, "app/images")
+const dirVideos = path.join(__dirname, "app/videos")
 const dirImages = path.join(__dirname, "app/images")
 const dirStatic = path.join(__dirname, "app/static")
 const dirStyles = path.join(__dirname, "app/styles")
@@ -57,9 +57,9 @@ module.exports = {
         {
             test: /\.(png|jpe?g|svg|gif|svg|webp|mp4)$/,
             type: "asset/resource",
-            // generator: {
-            // filename: "images/[hash][ext]"
-            // }
+            generator: {
+            filename: "images/[hash][ext]"
+            }
         },
         {
             test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -67,13 +67,6 @@ module.exports = {
             generator: {
             filename: "fonts/[hash][ext]"
             }
-        },
-        {
-            test: /\.(png|jpe?g|svg|gif|svg|webp|mp4)$/,
-            type: "asset/resource",
-            // generator: {
-            // filename: "images/[name][hash][ext]"
-            // }
         },
         {
             test: /\.(glsl|frag|vert)$/,
@@ -97,22 +90,22 @@ module.exports = {
         // {
         //     test: /\.html$/i,
         //     loader: "html-loader",
-        //     // options: {
-        //     //     sources: {
-        //     //         list: [
-        //     //             {
-        //     //               tag: "img",
-        //     //               attribute: "data-src",
-        //     //               type: "src",
-        //     //             },
-        //     //             {
-        //     //               tag: "img",
-        //     //               attribute: "data-srcset",
-        //     //               type: "srcset",
-        //     //             },
-        //     //           ]
-        //     //     }
-        //     // },
+        //     options: {
+        //         sources: {
+        //             list: [
+        //                 {
+        //                   tag: "img",
+        //                   attribute: "data-src",
+        //                   type: "src",
+        //                 },
+        //                 {
+        //                   tag: "img",
+        //                   attribute: "data-srcset",
+        //                   type: "srcset",
+        //                 },
+        //               ]
+        //         }
+        //     },
         //   },
         ]
     },
@@ -123,7 +116,13 @@ module.exports = {
     plugins: [
         new CopyPlugin({
         patterns: [
-            { from: dirStatic, to: "" }
+            { 
+                from: dirStatic, to: "" 
+            },
+            { 
+                from: "app/static/images", to: "images",
+            },
+
         ],
         }),
         new MiniCssExtractPlugin({

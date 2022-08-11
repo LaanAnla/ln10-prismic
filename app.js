@@ -191,22 +191,28 @@ app.get('/galerie', async (req, res) => {
 
 app.get('/silence', async (req, res) => {
   const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
   res.render('pages/silence', {
-    preloader
+    preloader,
+    footer
   })
 })
 
 app.get('/monaco', async (req, res) => {
   const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
   res.render('pages/monaco', {
-    preloader
+    preloader,
+    footer
   })
 })
 
 app.get('/saint-gilles', async (req, res) => {
   const preloader = await client.getSingle('preloader')
+  const footer = await client.getSingle('footer')
   res.render('pages/saint-gilles', {
-    preloader
+    preloader,
+    footer
   })
 })
 

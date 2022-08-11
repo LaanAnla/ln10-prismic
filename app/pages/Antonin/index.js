@@ -12,11 +12,11 @@ export default class Antonin extends Page {
     })
   }
 
-  create() {
-    super.create()
+  // create() {
+  //   super.create()
 
-    this.elements.navigation.addEventListener('click', _ => {
-      console.log("oh, you click me right now")
-    })
-  }
+  //   this.elements.navigation.addEventListener('click', _ => {
+  //     console.log("oh, you click me right now")
+  //   })
+  // }
 }

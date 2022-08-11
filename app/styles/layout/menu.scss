@@ -32,12 +32,48 @@
   gap: 60px;
 }
 
-a.menu__item {
-  font-family: $font-avantgarde-md;
-  font-size: calc(50px + (80 - 25) * ((100vw - 360px) / (1600 - 360)));
-  text-decoration: none;
+.menu__item__container a {
+  color: white;
   text-transform: uppercase;
-  color: $color-white;
-  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  font-family: $font-avantgarde-st;
+  font-size: calc(25px + (80 - 25) * ((100vw - 360px) / (1600 - 360)));
   z-index: 2;
+}
+
+.menu__item__text {
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+
+.menu__item > div:nth-child(1) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+.menu__item > div:nth-child(2) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.menu__item:hover > div:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+  color: rgb(86, 86, 86);
+}
+
+.menu__item:hover > div:nth-child(2) span {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  color: rgb(86, 86, 86);
 }

@@ -14,16 +14,20 @@ block vars
   - var page__3 = 'Contact'
 
 block content   
-  .about 
+  .about.fading
     include ../partials/menu
     include ../partials/main__navigation
     .about__introduction
-      h1!=about.data.description.replace(/\n/, '<br><br>')
+      div
+        //- h1!=about.data.description.replace(/\n/, '<br><br>')
+        h1=about.data.description
+      div
+        h1=about.data.description__bas
     .about__description
       each media in about.data.images
         figure.about__description__images
           .about__description__images__animation
-            img(src=media.image.url alt=media.alt)
+            img.preload(src=media.image.url alt=media.alt)
           .about__description__text
             h3=media.nom 
             h4=media.email

@@ -15,14 +15,27 @@
 
 .team__members__introduction h2 {
   @extend %membre-introduction-h2;
+
+  @include media('<phone') {
+    margin-bottom: 50px;
+  }
 }
 
 .team__members__work {
   @extend %membre-work;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
 }
 
 .team__members__image__container {
   @extend %membre-image-container;
+
+  @include media('<phone') {
+
+  }
+
 }
 
 .team__members__image__container img {

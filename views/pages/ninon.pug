@@ -7,14 +7,14 @@ block vars
   - var title =ninon.data.meta_title
   - var description =ninon.data.meta_description
   - var link__1 = '/propos'
-  - var page__1 = 'A propos'
+  - var page__1 = 'Propos'
   - var link__2 = '/galerie'
   - var page__2 = 'Galerie'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
   
 block content   
-  .team__members
+  .team__members.fading
     include ../partials/menu
     include ../partials/page__navigation
 
@@ -26,10 +26,10 @@ block content
       each media in ninon.data.galerie
         .team__members__image__container
           figure
-            img(src=media.images.url alt=media.images.alt loading="lazy" data-src=media.images_modal.url)
+            img.preload(src=media.images.url alt=media.images.alt loading="lazy" data-src=media.images_modal.url)
       each media in ninon.data.galerie
         .team__members__video__container
-          video(src=media.videos.url preload="auto" poster=media.videos.url data-src=media.videos_links.url) 
+          video(src=media.videos.url poster=media.videos.url data-src=media.videos_links.url) 
 
     .team__members__social
       each media in ninon.data.social

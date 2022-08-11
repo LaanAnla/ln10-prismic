@@ -1,4 +1,5 @@
 import Page from "classes/Page";
+import TextIntro from "utils/text"
 
 export default class About extends Page {
   constructor() {
@@ -10,6 +11,14 @@ export default class About extends Page {
         menu: document.querySelector('.menu')
       }
     })
+  }
 
+  create() {
+    super.create()
+    this.animation = new TextIntro(
+      this.text = document.querySelector('.about__introduction'),
+      this.contact =  document.querySelector('.about__description'),
+      this.second = null
+    )      
   }
 }

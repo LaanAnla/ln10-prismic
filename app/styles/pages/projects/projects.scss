@@ -4,3 +4,41 @@
   flex-direction: column;
   justify-content: space-between;
 } 
+
+.projets__holder {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  flex: 1;
+
+  @include media('<phone') {
+    flex-direction: column-reverse;  
+  }
+}
+
+.projets__holder__description {
+  background-color: red;
+  flex: 1;
+}
+
+.projets__holder__slider {
+//background-color: green;
+flex: 2;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+
+@include media('<phone') {
+  flex: 4;  
+}
+
+}
+
+.projets__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
