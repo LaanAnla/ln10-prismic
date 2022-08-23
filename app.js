@@ -11,6 +11,7 @@ const path = require('path')
 const app = express()
 const port = 3000
 
+
 // node-fetch is used to make network requests to the Prismic Rest API. 
 // In Node.js Prismic projects, you must provide a fetch method to the
 // Prismic client.
@@ -192,28 +193,53 @@ app.get('/galerie', async (req, res) => {
 app.get('/silence', async (req, res) => {
   const preloader = await client.getSingle('preloader')
   const footer = await client.getSingle('footer')
-  res.render('pages/silence', {
-    preloader,
-    footer
-  })
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'silence')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ silence ] = results;
+      console.log(silence.data.body);
+      res.render('pages/silence', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.get('/monaco', async (req, res) => {
+
   const preloader = await client.getSingle('preloader')
   const footer = await client.getSingle('footer')
-  res.render('pages/monaco', {
-    preloader,
-    footer
-  })
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'monaco')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ monaco ] = results;
+      console.log(monaco.data.body);
+      res.render('pages/monaco', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.get('/saint-gilles', async (req, res) => {
   const preloader = await client.getSingle('preloader')
   const footer = await client.getSingle('footer')
-  res.render('pages/saint-gilles', {
-    preloader,
-    footer
-  })
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'saintgilles')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ saintgilles ] = results;
+      console.log(saintgilles.data.body);
+      res.render('pages/saint-gilles', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.listen(port, () => {
