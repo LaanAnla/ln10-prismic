@@ -55,7 +55,7 @@ table {
   border-spacing: 0;
 }
 
-.silence, .monaco, .saint-gilles, .galerie, .team__members, .projets, .contact, .about, .home, .menu, .preloader {
+.monaco, .galerie, .team__members, .projets, .contact, .about, .home, .menu, .preloader, .silence, .saint-gilles, .content, body, html {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,11 +88,16 @@ table {
   font-style: normal;
   font-display: swap;
 }
+html {
+  position: fixed;
+  overflow: hidden;
+}
+
 body {
   font-family: "Avantgarde st";
   color: #000000;
   background-color: #ffffff;
-  overflow-x: hidden;
+  position: fixed;
 }
 
 .about__description__text h3 {
@@ -115,7 +120,7 @@ body {
   width: 30px;
 }
 
-.team__members__introduction {
+.saint-gilles__introduction, .team__members__introduction {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -133,6 +138,19 @@ body {
 .team__members__introduction h2 {
   font-family: "Avantgarde st";
   font-size: calc(15px + 10 * (100vw - 360px) / 1240);
+  text-align: center;
+  width: 80%;
+}
+
+.saint-gilles__introduction h1 {
+  font-family: "Avantgarde md";
+  text-transform: uppercase;
+  font-size: calc(25px + 35 * (100vw - 360px) / 1240);
+}
+
+.saint-gilles__introduction h2 {
+  font-family: "Avantgarde st";
+  font-size: calc(15px + 5 * (100vw - 360px) / 1240);
   text-align: center;
   width: 80%;
 }
@@ -313,6 +331,7 @@ body {
 }
 
 .menu {
+  height: 100vh;
   background-color: black;
   z-index: 2;
   transform: translateX(-101%);
@@ -578,49 +597,21 @@ body {
 }
 
 .projets {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
 .projets__holder {
-  display: flex;
-  flex-direction: row;
-  background-color: aqua;
-  flex: 1;
-}
-@media (max-width: 767px) {
-  .projets__holder {
-    flex-direction: column-reverse;
-  }
-}
-
-.projets__holder__description {
-  background-color: red;
-  flex: 1;
-}
-
-.projets__holder__slider {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .projets__holder__slider {
-    flex: 4;
-  }
-}
-
-.projets__canvas {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: aqua;
 }
-
+.projets__holder__slider img {
+  height: 40px;
+  width: auto;
+  cursor: pointer;
+}
 .team__members {
   display: flex;
   flex-direction: column;
@@ -671,18 +662,24 @@ body {
 
 .galerie__slider {
   display: flex;
-  flex: 10;
-  background-color: aqua;
+  width: 100vw;
+  height: 100%;
   position: relative;
 }
 
-.galerie__canvas {
+#galerie__canvas {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: red;
+}
+
+canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 .galerie__description {
@@ -716,16 +713,197 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: 767px) {
+  .saint-gilles__introduction h2 {
+    margin-bottom: 50px;
+  }
+}
+
+img.saint-gilles__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.saint-gilles__two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 90%;
+}
+@media (max-width: 767px) {
+  .saint-gilles__two {
+    flex-direction: column;
+  }
+}
+
 .monaco {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.button {
+  background-image: url(images/8d9ba5ffa9963cfb9871.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 2vw;
+  margin: auto;
+  bottom: 5vh;
+  height: 35px;
+  width: 35px;
+  z-index: 5;
+  visibility: hidden;
+  mix-blend-mode: hard-light;
+}
+
 .silence {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.silence__intro__texte {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.silence__intro__texte h2 {
+  font-family: "Avantgarde st";
+  font-size: 30px;
+  margin-right: 2vw;
+  margin-bottom: 20px;
+}
+
+.silence__wrapper__main {
+  height: 100vh;
+  width: 100vw;
+}
+
+.silence__wrapper__video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(208px + 302 * (100vw - 300px) / 1300);
+  width: calc(370px + 536.67 * (100vw - 300px) / 1300);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+.silence__wrapper__video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.silence__wrapper__one__image {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1400px;
+  width: 90%;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.silence__wrapper__one__image__container {
+  width: 1200px;
+  height: auto;
+}
+
+.silence__wrapper__one__image__container img {
+  height: 100%;
+  width: 100%;
+}
+
+.silence__wrapper__two__image {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 100vh;
+  max-width: 1400px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.silence__wrapper__two__image__container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 1200px;
+  height: 100%;
+}
+
+.silence__wrapper__two__image__container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.silence__wrapper__three__image {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  max-width: 1400px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  margin-bottom: 20px;
+}
+
+.silence__wrapper__main__image__container {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  background-color: green;
+}
+
+.silence__wrapper__main__image__container img {
+  height: 100%;
+  width: 100%;
+}
+
+.silence__wrapper__second__image__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  background-color: yellow;
+}
+
+.silence__wrapper__second__image__container img {
+  height: 100%;
+  width: 100%;
+}
+
+.silence__wrapper__two__image__column {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.silence__wrapper__two__image__column figure {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  gap: 20px;
+}
+
+.silence__wrapper__two__image__column img {
+  height: 40vh;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map*/

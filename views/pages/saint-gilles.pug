@@ -1,7 +1,7 @@
 extend ../base.pug
 
 block variables
-  - var template = 'saint-gilles'
+  - var template = 'saintGilles'
 
 block vars 
   - var link__1 = '/projets'
@@ -10,12 +10,28 @@ block vars
   - var page__2 = 'Propos'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
-//-   - var title =antonin.data.meta_title
-//-   - var description =antonin.data.meta_description
+  - var title =saintgilles.data.meta_title
+  - var description =saintgilles.data.meta_description
   
 block content   
   .saint-gilles.fading
-    include ../partials/menu
-    include ../partials/page__navigation
+    .saint-gilles__wrapper
+      include ../partials/menu
+      include ../partials/page__navigation
+      .saint-gilles__introduction  
+        h1(data-animation="header")=saintgilles.data.title
+        h2(data-animation="header")!=saintgilles.data.description.replace(/\n/, '<br><br>')
 
-    include ../partials/footer
+        each section in saintgilles.data.body
+          if section.id == 'one_image$1d6484a1-4ca8-4e70-8a2b-83ec9e4ae88a'
+            section.saint-gilles__two
+              img.saint-gilles__image(src=section.primary.image.url data-animation="image-left")
+          if section.slice_type == 'two_image'
+            section.saint-gilles__two
+              img.saint-gilles__image(src=section.primary.image.url data-animation="image-left")
+              img.saint-gilles__image(src=section.primary.image2.url data-animation="image")
+          if section.slice_label == 'one'
+            section.saint-gilles__two
+              img.saint-gilles__image(src=section.primary.image.url data-animation="image")
+
+      include ../partials/footer

@@ -1,44 +1,35 @@
 .projets {
   @extend %cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
+
 } 
 
 .projets__holder {
-  display: flex;
-  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: aqua;
-  flex: 1;
-
   @include media('<phone') {
-    flex-direction: column-reverse;  
+
   }
 }
 
 .projets__holder__description {
-  background-color: red;
-  flex: 1;
+
 }
 
-.projets__holder__slider {
+.projets__holder__slider img {
 //background-color: green;
-flex: 2;
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
-
+height: 40px;
+width: auto;
+cursor: pointer;
 @include media('<phone') {
-  flex: 4;  
+ 
 }
 
 }
 
 .projets__canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+
 }

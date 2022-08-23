@@ -10,12 +10,57 @@ block vars
   - var page__2 = 'Propos'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
-//-   - var title =antonin.data.meta_title
-//-   - var description =antonin.data.meta_description
+  - var title =silence.data.meta_title
+  - var description =silence.data.meta_description
   
 block content   
   .silence.fading
-    include ../partials/menu
-    include ../partials/page__navigation
+    .silence__wrapper
+      include ../partials/menu
+      include ../partials/page__navigation
+      .silence__wrapper__main
+        .saint-gilles__introduction 
+          h1(data-animation="header")=silence.data.title
+          h2(data-animation="header")!=silence.data.description.replace(/\n/, '<br><br>')
+        .silence__wrapper__video 
+          iframe(src=silence.data.video.url controls loading="lazy")
+      each section in silence.data.body
+        if section.slice_type =='introduction'
+          .silence__intro__texte
+            h2(data-animation="title")=section.primary.texte_introduction
+        if section.slice_type == 'one_image'
+          section.silence__wrapper__one__image
+            .silence__wrapper__one__image__container
+              img(src=section.primary.image.url)
 
-    include ../partials/footer
+        if section.slice_type == 'two_image' 
+          section.silence__wrapper__two__image
+            .silence__wrapper__two__image__container
+              img(src=section.primary.image.url)
+              img(src=section.primary.image2.url)
+
+        if section.slice_type == 'three_image' 
+          section.silence__wrapper__three__image
+            .silence__wrapper__main__image__container
+              img(src=section.primary.image.url)
+            .silence__wrapper__second__image__container
+              img(src=section.primary.image2.url)
+              img(src=section.primary.image3.url)
+        
+        if section.slice_type == 'two_image_column'
+          section.silence__wrapper__two__image__column
+            figure
+              img(src=section.primary.image.url)
+              img(src=section.primary.image1.url)
+        
+        if section.slice_type == 'four_image' 
+          section.silence__wrapper__three__image
+            .silence__wrapper__main__image__container
+              img(src=section.primary.image.url)
+            .silence__wrapper__second__image__container
+              img(src=section.primary.image1.url)
+              img(src=section.primary.image2.url)
+            .silence__wrapper__main__image__container
+              img(src=section.primary.image3.url)
+      .button
+      include ../partials/footer

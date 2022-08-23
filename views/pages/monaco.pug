@@ -10,13 +10,25 @@ block vars
   - var page__2 = 'Propos'
   - var link__3 = '/contact'
   - var page__3 = 'Contact'
-//-   - var title =antonin.data.meta_title
-//-   - var description =antonin.data.meta_description
+  - var title =monaco.data.meta_title
+  - var description =monaco.data.meta_description
 
   
 block content   
   .monaco.fading
-    include ../partials/menu
-    include ../partials/page__navigation
+    .monaco__wrapper
+      include ../partials/menu
+      include ../partials/page__navigation
+      .saint-gilles__introduction  
+        h1(data-animation="header")=monaco.data.title
+        h2(data-animation="header")!=monaco.data.description.replace(/\n/, '<br><br>')
 
-    include ../partials/footer
+        each section in monaco.data.body
+          if section.slice_type == 'one_image'
+            section.saint-gilles__two
+              img.saint-gilles__image(src=section.primary.image.url data-animation="image")
+          if section.slice_type == 'two_image'
+            section.saint-gilles__two
+              img.saint-gilles__image(src=section.primary.image.url data-animation="image-left")
+              img.saint-gilles__image(src=section.primary.image2.url data-animation="image")
+      include ../partials/footer

@@ -20,6 +20,21 @@
   width: 80%;
 }
 
+%membre-projet-introduction-h1 {
+  font-family: $font-avantgarde-md;
+  text-transform: uppercase;
+  font-size: calc(25px + (60 - 25) * ((100vw - 360px) / (1600 - 360)));
+}
+
+%membre-projet-introduction-h2 {
+  font-family: $font-avantgarde-st;
+  font-size: calc(15px + (20 - 15) * ((100vw - 360px) / (1600 - 360)));
+  text-align: center;
+  width: 80%;
+}
+
+
+
 %membre-work {
   // width: 100%;
   display: flex;

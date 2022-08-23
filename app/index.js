@@ -17,13 +17,19 @@ import SaintGilles from 'pages/SaintGilles'
 import Monaco from 'pages/Monaco'
 
 
+
 class App {
   constructor() {
     this.createContent()
     this.createPreloader()
-    this.createPages()
     this.createMenu()
+
+    this.createPages()
+
+    this.addEventListeners()
     this.addLinkListeners()
+
+    this.update()
   }
 
   createPreloader() {
@@ -52,7 +58,10 @@ class App {
     }
 
     this.page = this.pages[this.template]
+    console.log(this.page)
     this.page.create()
+    this.page.show()
+    this.onResize()
   }
 
   createMenu() {
@@ -62,10 +71,18 @@ class App {
 
   onPreloaded() {
     this.preloader.destroy()
+    this.onResize()
     this.page.show()
   }
 
-  async onChange(url) {
+  onPopState() {
+    this.onChange({
+      url: window.location.pathname,
+      push: false
+    })
+  }
+
+  async onChange({ url , push = true }) {
     await this.page.hide()
     const request = await window.fetch(url)
 
@@ -73,6 +90,10 @@ class App {
       const html = await request.text()
  
       const div = document.createElement('div')
+
+      if(push) {
+        window.history.pushState({}, '', url)
+      }
 
       div.innerHTML = html
       const divContent = div.querySelector('.content')
@@ -83,14 +104,34 @@ class App {
       this.content.innerHTML = divContent.innerHTML
 
       this.page = this.pages[this.template]
+
       this.page.create()
       this.page.show()
       this.createMenu()
+    
       this.addLinkListeners()
 
      } else {
        console.log('error')
      }
+  }
+
+  onResize() {
+    if(this.page && this.page.onResize) {
+      this.page.onResize()
+    }
+  }
+
+  update() {
+    if(this.page && this.page.update) {
+      this.page.update()
+    }
+    this.frame = window.requestAnimationFrame(this.update.bind(this))
+  }
+
+  addEventListeners() {
+    window.addEventListener('popstate', this.onPopState.bind(this))
+    window.addEventListener('resize', this.onResize.bind(this))
   }
 
   addLinkListeners() {
@@ -102,7 +143,7 @@ class App {
 
         const { href } = link 
 
-        this.onChange(href)
+        this.onChange({ url: href})
       }
     })
   }

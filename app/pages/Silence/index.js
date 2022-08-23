@@ -1,4 +1,4 @@
-import Page from "classes/Page";
+import Page from "classes/Page"
 
 export default class Silence extends Page {
   constructor() {
@@ -6,8 +6,9 @@ export default class Silence extends Page {
       id: 'silence',
       element: '.silence',
       elements: {
+        wrapper: document.querySelector('.silence__wrapper'),
         navigation: document.querySelector('.main__navigation__menu div'),
-        menu: document.querySelector('.menu')
+        menu: document.querySelector('.menu'),
       }
     })
   }

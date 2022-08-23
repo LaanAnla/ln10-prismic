@@ -18,7 +18,13 @@ block content
     include ../partials/menu
     include ../partials/main__navigation
     .projets__holder 
-      .projets__holder__description 
+      h1 liste des projets
+      .projets__holder__description
+        p Loading.....
       .projets__holder__slider
-        canvas.projets__canvas
+        nav 
+          a.prev(href='#')
+            img(src=('images/arrow-left-circle-lined.svg'))
+          a.next(href='#')
+            img(src=('images/arrow-right-circle-lined.svg'))
     include ../partials/footer 

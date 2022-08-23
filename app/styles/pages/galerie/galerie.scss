@@ -7,18 +7,27 @@
 
 .galerie__slider {
   display: flex;
-  flex: 10;
-  background-color: aqua;
+  //flex: 10;
+  width: 100vw;
+  height: 100%;
+  //background-color: aqua;
   position: relative;
 }
 
-.galerie__canvas {
+#galerie__canvas {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: red;
+  //background-color: red;
+}
+
+canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 .galerie__description {

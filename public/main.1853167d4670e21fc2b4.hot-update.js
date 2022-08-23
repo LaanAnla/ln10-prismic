@@ -1,3 +1,0 @@
-/*! For license information please see main.1853167d4670e21fc2b4.hot-update.js.LICENSE.txt */
-"use strict";self.webpackHotUpdateln10_prismic("main",{"./app/styles/index.scss":(s,e,t)=>{t.r(e);var i=t("./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(s.id,{publicPath:"",locals:!1});s.hot.dispose(i),s.hot.accept(void 0,i)}},(function(s){s.h=()=>"867ffb8116bb79ef1178"}));
-//# sourceMappingURL=main.1853167d4670e21fc2b4.hot-update.js.map

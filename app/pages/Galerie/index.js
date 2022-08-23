@@ -7,7 +7,7 @@ export default class Galerie extends Page {
       element: '.galerie',
       elements: {
         navigation: document.querySelector('.main__navigation__menu div'),
-        menu: document.querySelector('.menu')
+        menu: document.querySelector('.menu'),
       }
     })
   }

@@ -1,6 +1,7 @@
 .menu {
     @extend %cover;
     @extend %column;
+    height: 100vh;
     background-color: black;
     z-index: 2;
     transform: translateX(-101%);

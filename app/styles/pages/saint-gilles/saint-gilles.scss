@@ -1,6 +1,45 @@
 .saint-gilles {
-  @extend %cover;
+  @extend %page;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.saint-gilles__wrapper {
+
+}
+
+.saint-gilles__introduction {
+  @extend %membre-introduction;
+}
+
+.saint-gilles__introduction h1 {
+  @extend %membre-projet-introduction-h1;
+}
+
+.saint-gilles__introduction h2 {
+  @extend %membre-projet-introduction-h2;
+
+  @include media('<phone') {
+    margin-bottom: 50px;
+  }
+}
+
+img.saint-gilles__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.saint-gilles__two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 90%;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
 }
