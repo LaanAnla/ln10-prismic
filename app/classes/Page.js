@@ -149,6 +149,7 @@ export default class Page {
   }
 
   update() {
+
     this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
 
     this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.05)
@@ -169,5 +170,4 @@ export default class Page {
   removeEventListeners() {
     window.removeEventListener('wheel', this.onMouseWheelEvent)
   }
-
 }

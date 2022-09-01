@@ -1,4 +1,5 @@
 import each from 'lodash/each'
+import Canvas from 'components/Canvas'
 
 import Preloader from 'components/Preloader'
 
@@ -24,6 +25,7 @@ class App {
     this.createPreloader()
     this.createMenu()
 
+    this.createCanvas()
     this.createPages()
 
     this.addEventListeners()
@@ -35,6 +37,10 @@ class App {
   createPreloader() {
     this.preloader = new Preloader()
     this.preloader.once('completed', this.onPreloaded.bind(this))
+  }
+
+  createCanvas() {
+    this.canvas = new Canvas()
   }
 
   createContent() {
@@ -60,6 +66,7 @@ class App {
     this.page = this.pages[this.template]
     console.log(this.page)
     this.page.create()
+  
     this.page.show()
     this.onResize()
   }
@@ -106,7 +113,10 @@ class App {
       this.page = this.pages[this.template]
 
       this.page.create()
+
       this.page.show()
+  
+      console.log(this.page.scroll)
       this.createMenu()
     
       this.addLinkListeners()
@@ -117,12 +127,32 @@ class App {
   }
 
   onResize() {
+    if(this.canvas && this.canvas.onResize) {
+      this.canvas.onResize()
+    }
+
     if(this.page && this.page.onResize) {
       this.page.onResize()
     }
   }
 
+  // onMouseWheel(e) {
+  //   const normalizedWheel = NormalizeWheel(e);
+
+  //   if (this.canvas && this.canvas.onWheel) {
+  //     this.canvas.onWheel(normalizedWheel);
+  //   }
+
+  //   if (this.page && this.page.onWheel) {
+  //     this.page.onWheel(normalizedWheel);
+  //   }
+  // }
+
   update() {
+    if(this.canvas && this.canvas.update) {
+      this.canvas.update()
+    }
+
     if(this.page && this.page.update) {
       this.page.update()
     }

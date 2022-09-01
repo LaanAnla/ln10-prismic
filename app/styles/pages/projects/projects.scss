@@ -1,35 +1,72 @@
 .projets {
   @extend %cover;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 } 
 
 .projets__holder {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: aqua;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  margin: auto;
   @include media('<phone') {
 
   }
 }
 
+.projets__holder__title {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  //background-color: aqua;
+  width: 40vw;
+  height: auto;
+}
+
+.projets__holder__title h1 {
+  font-size: 20px;
+  opacity: 0;
+}
+
 .projets__holder__description {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+} 
 
+
+
+img.projets__gallery__media__image {
+  height: 300px;
+  width: 300px;
+  // opacity: 0.3;
+  // position: absolute;
+  // margin-top: -100px;
+  // opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
 }
 
-.projets__holder__slider img {
-//background-color: green;
-height: 40px;
-width: auto;
-cursor: pointer;
-@include media('<phone') {
- 
-}
-
-}
-
-.projets__canvas {
-
+.projets__holder__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

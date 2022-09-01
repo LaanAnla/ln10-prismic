@@ -362,6 +362,8 @@
 
 /*! classes/Page */
 
+/*! components/Canvas */
+
 /*! components/Menu */
 
 /*! components/Preloader */
@@ -407,6 +409,8 @@
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /*! tapable/lib/SyncBailHook */
+
+/*! three */
 
 /*! utils/text */
 
@@ -573,6 +577,10 @@
 /*!***************************************!*\
   !*** ./node_modules/lodash/_toKey.js ***!
   \***************************************/
+
+/*!****************************************!*\
+  !*** ./app/components/Canvas/index.js ***!
+  \****************************************/
 
 /*!****************************************!*\
   !*** ./app/pages/SaintGilles/index.js ***!
@@ -1054,6 +1062,10 @@
   !*** ./node_modules/lodash/_basePropertyDeep.js ***!
   \**************************************************/
 
+/*!**************************************************!*\
+  !*** ./node_modules/three/build/three.module.js ***!
+  \**************************************************/
+
 /*!***************************************************!*\
   !*** ./node_modules/ansi-html-community/index.js ***!
   \***************************************************/
@@ -1173,6 +1185,12 @@
 /*!********************************************************************************************************************************************!*\
   !*** ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=info&reconnect=10 ***!
   \********************************************************************************************************************************************/
+
+/**
+ * @license
+ * Copyright 2010-2022 Three.js Authors
+ * SPDX-License-Identifier: MIT
+ */
 
 /**
  * Checks if an event is supported in the current execution environment.

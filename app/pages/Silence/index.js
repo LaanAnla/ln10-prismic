@@ -1,4 +1,5 @@
 import Page from "classes/Page"
+import GSAP from 'gsap'
 
 export default class Silence extends Page {
   constructor() {
@@ -11,5 +12,8 @@ export default class Silence extends Page {
         menu: document.querySelector('.menu'),
       }
     })
+
   }
+
+  
 }

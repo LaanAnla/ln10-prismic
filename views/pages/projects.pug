@@ -17,14 +17,18 @@ block content
   .projets.fading
     include ../partials/menu
     include ../partials/main__navigation
-    .projets__holder 
-      h1 liste des projets
-      .projets__holder__description
-        p Loading.....
-      .projets__holder__slider
-        nav 
-          a.prev(href='#')
-            img(src=('images/arrow-left-circle-lined.svg'))
-          a.next(href='#')
-            img(src=('images/arrow-right-circle-lined.svg'))
+    each media in projets.data.module_one
+      .projets__holder 
+        .projets__holder__image
+          img.projets__gallery__media__image(src=media.image.url alt=media.image.alt loading="lazy")
+          a.fetch(href='/silence')
+            h1=media.description_image
+        .projets__holder__image
+          img.projets__gallery__media__image(src=media.image2.url alt=media.image2.alt loading="lazy")
+          a.fetch(href='/saint-gilles')
+            h1=media.description_image2
+        .projets__holder__image
+          img.projets__gallery__media__image(src=media.image3.url alt=media.image3.alt loading="lazy")
+          a.fetch(href='/monaco')
+            h1=media.description_image3
     include ../partials/footer 
