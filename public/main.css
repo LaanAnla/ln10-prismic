@@ -168,11 +168,13 @@ body {
 }
 
 .preloader {
-  display: none;
+  color: #ffffff;
   align-items: center;
+  display: flex;
   justify-content: center;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #000000;
+  z-index: 4;
 }
 
 .preloader__text {

@@ -14,7 +14,7 @@ block vars
   - var page__3 = 'Contact'
   
 block content   
-  .team__members
+  .team__members.fading
     include ../partials/menu
     include ../partials/page__navigation
 
@@ -26,7 +26,7 @@ block content
       each media in antonin.data.gallerie
         .team__members__image__container
           figure
-            img(src=media.image.url alt=media.image.alt loading="lazy" data-src=media.full.url) 
+            img.preloaded(data-src=media.image.url alt=media.image.alt loading="lazy") 
 
     .team__members__social
       each media in antonin.data.social

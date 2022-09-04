@@ -14,7 +14,7 @@ block vars
   - var page__3 = 'Contact'
 
 block content   
-  .about 
+  .about.fading
     include ../partials/menu
     include ../partials/main__navigation
     .about__introduction
@@ -23,7 +23,7 @@ block content
       each media in about.data.images
         figure.about__description__images
           .about__description__images__animation
-            img(src=media.image.url alt=media.alt)
+            img.preloaded(data-src=media.image.url alt=media.alt)
           .about__description__text
             h3=media.nom 
             h4=media.email

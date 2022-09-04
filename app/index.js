@@ -1,19 +1,27 @@
+import each from 'lodash/each'
+import Preloader from 'components/Preloader'
+
 import About from 'pages/About'
 import Home from 'pages/Home'
 import Contact from 'pages/Contact'
 import Antonin from 'pages/Antonin'
+import Galerie from 'pages/Galerie'
 import Ninon from 'pages/Ninon'
 import Manon from 'pages/Manon'
-import Galerie from 'pages/Galerie'
 import Projets from 'pages/Projets'
-import each from 'lodash/each'
 
 
 class App {
   constructor() {
+    this.createPreloader()
     this.createContent()
     this.createPages()
     this.addLinkListeners()
+  }
+
+  createPreloader() {
+    this.preloader = new Preloader()
+    this.preloader.once('completed', this.onPreloaded.bind(this))
   }
 
   createContent() {
@@ -36,6 +44,10 @@ class App {
     this.page = this.pages[this.template]
     this.page.create()
     this.page.show()
+  }
+
+  onPreloaded() {
+    this.preloader.destroy()
   }
 
   async onChange(url) {
@@ -69,7 +81,7 @@ class App {
 
   addLinkListeners() {
     const links = document.querySelectorAll('a.fetch')
-    console.log(links)
+   
     each(links, link => {
       link.onclick = event => {
         event.preventDefault()
