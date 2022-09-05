@@ -26,7 +26,7 @@ const handleLinkResolver = (document) => {
     return '/projets'
   } 
   if (document.type === 'antonin') {
-    return '/antonin'
+    return '/silence'
   }
   if (document.type === 'ninon') {
     return '/ninon'
