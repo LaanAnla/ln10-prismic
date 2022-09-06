@@ -172,6 +172,8 @@
 
 /*! classes/Page */
 
+/*! components/Menu */
+
 /*! components/Preloader */
 
 /*! events */
@@ -200,11 +202,15 @@
 
 /*! pages/Projets */
 
+/*! pages/Silence */
+
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /*! tapable/lib/SyncBailHook */
 
 /*! utils/text */
+
+/*! utils/textAnim */
 
 /*! webpack/hot/emitter.js */
 
@@ -227,6 +233,14 @@
 /*!*******************************!*\
   !*** ./app/styles/index.scss ***!
   \*******************************/
+
+/*!*******************************!*\
+  !*** ./app/utils/textAnim.js ***!
+  \*******************************/
+
+/*!********************************!*\
+  !*** ./app/components/Menu.js ***!
+  \********************************/
 
 /*!*********************************!*\
   !*** ./app/pages/Home/index.js ***!
@@ -262,6 +276,10 @@
 
 /*!************************************!*\
   !*** ./app/pages/Projets/index.js ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./app/pages/Silence/index.js ***!
   \************************************/
 
 /*!************************************!*\

@@ -1,5 +1,24 @@
+html {
+  @extend %cover;
+  position: fixed;
+  overflow: hidden;
+}
+
 body {
+  @extend %cover;
   font-family: $font-avantgarde-st;
   color: $color-black;
   background-color: $color-white;
+  position: fixed;
 }
+
+.content {
+  @extend %cover;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  user-select: none
+}
+

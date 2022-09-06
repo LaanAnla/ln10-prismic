@@ -6,12 +6,14 @@
 @import './utils/vendors.scss';
 @import './utils/responsive.scss';
 
+@import './shared/title.scss';
+@import './shared/pages.scss';
+@import './shared/logo.scss';
+
+@import './shared/descriptions.scss';
+
 @import './base/fonts.scss';
 @import './base/base.scss';
-
-@import './shared/title.scss';
-@import './shared/logo.scss';
-@import './shared/descriptions.scss';
 
 @import './components/preloader.scss';
 

@@ -1,4 +1,5 @@
 import Page from "classes/Page";
+import TextAnim from "utils/textAnim"
 
 export default class Home extends Page {
   constructor() {
@@ -12,11 +13,8 @@ export default class Home extends Page {
     })
   }
 
-  // create() {
-  //   super.create()
-
-  //   this.elements.navigation.addEventListener('click', _ => {
-  //     console.log("oh, you click me right now")
-  //   })
-  // }
+  create() {
+    super.create()
+    this.animation = new TextAnim(".home__links__link");
+  }
 }

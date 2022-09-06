@@ -72,7 +72,11 @@ export default class Preloader extends Component {
       } 
     } 
     
-    if(window.location.pathname == "/contact" || window.location.pathname == "/manon" || window.location.pathname == '/ninon') {
+    if(
+      window.location.pathname == "/contact" || 
+      window.location.pathname == "/manon" || 
+      window.location.pathname == '/ninon' || 
+      window.location.pathname == '/silence') {
       this.elements.number.innerHTML = `${100}%`
         this.onLoaded()
     }
@@ -96,7 +100,8 @@ export default class Preloader extends Component {
         y: '100%',
         ease: "power2",
         duration: 0.8,
-        delay: 3
+        delay: 3,
+        stagger: 0.3
       })
 
       this.animateOut.to(this.elements.title, {

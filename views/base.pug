@@ -9,7 +9,6 @@ html(lang='fr')
     meta(name='StudioLN10', content='WebSite with Prismic')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    base(href='/')
 
     title=  title
 
@@ -26,6 +25,8 @@ html(lang='fr')
     title StudioLN10 | Créateurs de contenus visuels
 
     link(rel="stylesheet", type="text/css", href="/main.css")
+    
+    base(href='/')
   body 
     include ./partials/preloader
     .content#content(data-template=template)

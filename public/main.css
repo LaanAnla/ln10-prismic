@@ -55,7 +55,7 @@ table {
   border-spacing: 0;
 }
 
-.silence, .monaco, .saint-gilles, .galerie, .team__members, .projets, .contact, .about, .home, .menu, .preloader {
+.monaco, .saint-gilles, .galerie, .team__members, .projets, .contact, .about, .home, .menu, .preloader, .content, body, html, .silence {
   position: absolute;
   top: 0;
   left: 0;
@@ -72,26 +72,6 @@ table {
 
 .dg.ac {
   z-index: 99999 !important;
-}
-
-@font-face {
-  font-family: "Avantgarde md";
-  src: url(fonts/8407818d7025fb2ce85c.woff2) format("woff2"), url(fonts/972166616e4ef25ec7f7.woff) format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avantgarde st";
-  src: url(fonts/7e2f2e4231db389c7e01.woff2) format("woff2"), url(fonts/9071614471309f51a3a1.woff) format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-body {
-  font-family: "Avantgarde st";
-  color: #000000;
-  background-color: #ffffff;
 }
 
 .about__description__text h3 {
@@ -167,6 +147,39 @@ body {
   gap: 10px;
 }
 
+@font-face {
+  font-family: "Avantgarde md";
+  src: url(fonts/8407818d7025fb2ce85c.woff2) format("woff2"), url(fonts/972166616e4ef25ec7f7.woff) format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avantgarde st";
+  src: url(fonts/7e2f2e4231db389c7e01.woff2) format("woff2"), url(fonts/9071614471309f51a3a1.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  position: fixed;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Avantgarde st";
+  color: #000000;
+  background-color: #ffffff;
+  position: fixed;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  user-select: none;
+}
+
 .preloader {
   color: #ffffff;
   align-items: center;
@@ -174,7 +187,7 @@ body {
   justify-content: center;
   text-align: center;
   background-color: #000000;
-  z-index: 4;
+  z-index: 5;
 }
 
 .preloader__text {
@@ -191,7 +204,7 @@ body {
 
 .main__navigation {
   display: flex;
-  height: 20vh;
+  height: 15vh;
 }
 
 .main__navigation__logo {
@@ -208,6 +221,15 @@ body {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  z-index: 5;
+  margin-right: 2vw;
+  margin-top: 2vh;
+}
+
+.main__navigation__menu.active p {
+  color: #ffffff;
+  z-index: 3;
+  z-index: 5;
 }
 
 .main__navigation__menu > div {
@@ -215,20 +237,31 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 30px;
+  height: 15px;
   width: 30px;
   position: relative;
-  margin-right: 2vw;
-  margin-top: 2vh;
   cursor: pointer;
+  z-index: 3;
+  z-index: 5;
 }
 
 .main__navigation__menu span {
   background: black;
   height: 1px;
   width: 30px;
-  transition: 0.3s;
+  transition: 1.2s;
   transform-origin: center;
+}
+
+.main__navigation__menu p {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.main__navigation__menu.active span {
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 .main__navigation__menu.active span:nth-child(1) {
@@ -291,9 +324,11 @@ body {
 }
 
 .menu {
+  height: 100vh;
   background-color: black;
   z-index: 2;
   transform: translateX(-101%);
+  z-index: 5;
 }
 
 .menu:before {
@@ -304,7 +339,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 5;
   opacity: 0.15;
   background-image: url(images/logo-studio-ln10-white.svg);
   background-size: contain;
@@ -322,14 +357,50 @@ body {
   gap: 60px;
 }
 
-a.menu__item {
-  font-family: "Avantgarde md";
-  font-size: calc(50px + 55 * (100vw - 360px) / 1240);
-  text-decoration: none;
+.menu__item__container a {
+  color: white;
   text-transform: uppercase;
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 2;
+  text-decoration: none;
+  position: relative;
+  font-family: "Avantgarde st";
+  font-size: calc(25px + 55 * (100vw - 360px) / 1240);
+  z-index: 5;
+}
+
+.menu__item__text {
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+
+.menu__item > div:nth-child(1) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+.menu__item > div:nth-child(2) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.menu__item:hover > div:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+  color: rgb(86, 86, 86);
+}
+
+.menu__item:hover > div:nth-child(2) span {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  color: rgb(86, 86, 86);
 }
 
 .home {
@@ -349,11 +420,50 @@ a.menu__item {
   gap: calc(10px + 130 * (100vw - 300px) / 1300);
 }
 
+.home__links li {
+  display: flex;
+}
+
 .home__links__link {
   color: #000000;
-  font-size: 18px;
+  font-size: calc(10px + 15 * (100vw - 360px) / 1240);
   text-decoration: none;
   text-transform: uppercase;
+  position: relative;
+}
+
+.menu__item__text {
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+
+.home__links__link > div:nth-child(1) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+.home__links__link > div:nth-child(2) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.home__links__link:hover > div:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.home__links__link:hover > div:nth-child(2) span {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
 }
 
 .home__video {
@@ -522,9 +632,36 @@ a.menu__item {
 }
 
 .silence {
+  z-index: 2;
+}
+
+.module__one {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+}
+
+.module__two {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: green;
+}
+
+.module__three {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: yellow;
+}
+
+.module__four {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: dark;
 }
 
 /*# sourceMappingURL=main.css.map*/

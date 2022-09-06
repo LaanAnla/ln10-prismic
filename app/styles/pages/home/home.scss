@@ -16,11 +16,50 @@
   gap: calc(10px + (140 - 10) * ((100vw - 300px) / (1600 - 300)));
 }
 
+.home__links li {
+  display: flex;
+}
+
 .home__links__link {
   color: $color-black;
-  font-size: 18px;
+  font-size: calc(10px + (25 - 10) * ((100vw - 360px) / (1600 - 360)));
   text-decoration: none;
   text-transform: uppercase;
+  position: relative;
+}
+
+.menu__item__text {
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+
+.home__links__link > div:nth-child(1) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+.home__links__link > div:nth-child(2) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.home__links__link:hover > div:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.home__links__link:hover > div:nth-child(2) span {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
 }
 
 .home__video {
@@ -39,3 +78,48 @@
   height: 100%;
   width: 100%;
 }
+
+
+
+
+// .home {
+//   @extend %cover;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// } 
+
+// .home__links {
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .home__links ul {
+//   display: flex;
+//   flex-direction: row;
+//   gap: calc(10px + (140 - 10) * ((100vw - 300px) / (1600 - 300)));
+// }
+
+// .home__links__link {
+//   color: $color-black;
+//   font-size: 18px;
+//   text-decoration: none;
+//   text-transform: uppercase;
+// }
+
+// .home__video {
+//   max-width: 95%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-top: 50px;
+//   height: calc(174.38px + 305.62*(100vw - 360px)/1240);
+//   width: calc(310px + 543.33*(100vw - 360px)/1240);
+// }
+
+// .home__video video {
+//   height: 100%;
+//   width: 100%;
+// }
