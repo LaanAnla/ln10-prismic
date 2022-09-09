@@ -26,7 +26,7 @@ const handleLinkResolver = (document) => {
     return '/projets'
   } 
   if (document.type === 'antonin') {
-    return '/silence'
+    return '/antonin'
   }
   if (document.type === 'ninon') {
     return '/ninon'
@@ -191,23 +191,54 @@ app.get('/galerie', async (req, res) => {
 
 app.get('/silence', async (req, res) => {
   const preloader = await client.getSingle('preloader')
-  res.render('pages/silence', {
-    preloader
-  })
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'silence')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ silence ] = results;
+      console.log(silence.data.body);
+      res.render('pages/silence', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.get('/monaco', async (req, res) => {
+
   const preloader = await client.getSingle('preloader')
-  res.render('pages/monaco', {
-    preloader
-  })
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'monaco')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ monaco ] = results;
+      console.log(monaco.data.body);
+      res.render('pages/monaco', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.get('/saint-gilles', async (req, res) => {
   const preloader = await client.getSingle('preloader')
-  res.render('pages/saint-gilles', {
-    preloader
-  })
+  const footer = await client.getSingle('footer')
+  const document = await client.get({ predicates: [ prismic.predicate.at('document.type', 'saintgilles')]}).then(
+    response => {
+      // Destructuring assignment
+      const { results } = response;
+      [ saintgilles ] = results;
+      console.log(saintgilles.data.body);
+      res.render('pages/saint-gilles', {
+        preloader,
+        footer
+      })
+    }
+  )
 })
 
 app.listen(port, () => {
